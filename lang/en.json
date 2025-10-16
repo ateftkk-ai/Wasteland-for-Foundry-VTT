@@ -1,0 +1,26 @@
+{
+  "Wasteland3": {
+    "ActorTypes": {
+      "Animal": "Animal",
+      "Ranger": "Ranger",
+      "Robot": "Robot", 
+      "Enemy": "Enemy"
+    },
+    "ItemTypes": {
+      "Weapon": "Weapon",
+      "Armor": "Armor",
+      "Skill": "Skill",
+      "Perk": "Perk",
+      "Quirk": "Quirk"
+    },
+    "Attributes": {
+      "Coordination": "Coordination",
+      "Luck": "Luck",
+      "Awareness": "Awareness",
+      "Strength": "Strength",
+      "Speed": "Speed", 
+      "Intelligence": "Intelligence",
+      "Charisma": "Charisma"
+    }
+  }
+}
