@@ -1,0 +1,268 @@
+{
+  "Actor": {
+    "types": ["ranger", "animal", "robot", "enemy"],
+    "templates": [
+      "baseActor"
+    ],
+    "ranger": {
+      "label": "Ranger",
+      "templates": ["rangerTemplate"]
+    },
+    "animal": {
+      "label": "Animal", 
+      "templates": ["animalTemplate"]
+    },
+    "robot": {
+      "label": "Robot",
+      "templates": ["robotTemplate"]
+    },
+    "enemy": {
+      "label": "Enemy",
+      "templates": ["enemyTemplate"]
+    }
+  },
+  "Item": {
+    "types": ["weapon", "armor", "skill", "perk", "quirk"],
+    "templates": [
+      "baseItem"
+    ],
+    "weapon": {
+      "label": "Weapon",
+      "templates": ["weaponItem"]
+    },
+    "armor": {
+      "label": "Armor",
+      "templates": ["armorItem"]
+    },
+    "skill": {
+      "label": "Skill"
+    },
+    "perk": {
+      "label": "Perk"
+    },
+    "quirk": {
+      "label": "Quirk"
+    }
+  },
+  "baseActor": {
+    "name": "",
+    "type": "ranger",
+    "img": "icons/svg/mystery-man.svg",
+    "system": {
+      "details": {
+        "biography": "",
+        "notes": ""
+      },
+      "attributes": {
+        "level": 1,
+        "health": {
+          "value": 10,
+          "max": 10
+        },
+        "actionPoints": {
+          "value": 10,
+          "max": 10
+        }
+      },
+      "combat": {
+        "statusEffects": [],
+        "cover": "none"
+      },
+      "armor": {
+        "head": {"value": 0},
+        "body": {"value": 0},
+        "arms": {"value": 0},
+        "legs": {"value": 0}
+      },
+      "weapons": {
+        "equipped": {
+          "primary": null,
+          "secondary": null,
+          "melee": null
+        }
+      }
+    }
+  },
+  "rangerTemplate": {
+    "type": "ranger",
+    "system": {
+      "attributes": {
+        "health": {"value": 100, "max": 100},
+	"actionPoints": {"value": 10, "max": 10},
+        "skillPoints": 0,
+        "experience": 0,
+        "stats": {
+          "coordination": {"value": 1, "max": 10},
+          "luck": {"value": 1, "max": 10},
+          "awareness": {"value": 1, "max": 10},
+          "strength": {"value": 1, "max": 10},
+          "speed": {"value": 1, "max": 10},
+          "intelligence": {"value": 1, "max": 10},
+          "charisma": {"value": 1, "max": 10}
+	 }
+        },
+        "derived": {
+          "strikeRate": 0,
+          "criticalChance": 0,
+          "maxCarryWeight": 0,
+          "initiative": 0,
+          "detection": 0,
+          "experienceBonus": 0
+        }
+      },
+      "skills": {
+        "weapons": {
+          "automaticWeapons": {"value": 0, "attribute": "coordination"},
+          "smallArms": {"value": 0, "attribute": "coordination"},
+          "heavyWeapons": {"value": 0, "attribute": "strength"},
+          "sniperRifles": {"value": 0, "attribute": "awareness"},
+          "shotguns": {"value": 0, "attribute": "strength"},
+          "meleeWeapons": {"value": 0, "attribute": "strength"},
+          "brawling": {"value": 0, "attribute": "strength"},
+          "explosives": {"value": 0, "attribute": "coordination"}
+        },
+        "combat": {
+          "armorModding": {"value": 0, "attribute": "intelligence"},
+          "weaponModding": {"value": 0, "attribute": "intelligence"},
+          "firstAid": {"value": 0, "attribute": "intelligence"},
+          "sneakyShit": {"value": 0, "attribute": "awareness"},
+          "animalWhisperer": {"value": 0, "attribute": "charisma"},
+          "leadership": {"value": 0, "attribute": "charisma"}
+        },
+        "survival": {
+          "lockpicking": {"value": 0, "attribute": "awareness"},
+          "hardAss": {"value": 0, "attribute": "strength"},
+          "kissAss": {"value": 0, "attribute": "charisma"},
+          "mechanics": {"value": 0, "attribute": "intelligence"},
+          "survival": {"value": 0, "attribute": "intelligence"},
+          "toasterRepair": {"value": 0, "attribute": "intelligence"}
+        },
+        "tech": {
+          "nerdStuff": {"value": 0, "attribute": "intelligence"},
+          "weirdScience": {"value": 0, "attribute": "intelligence"},
+          "cybernetics": {"value": 0, "attribute": "intelligence"},
+          "computerScience": {"value": 0, "attribute": "intelligence"},
+          "engineering": {"value": 0, "attribute": "intelligence"}
+        }
+      },
+      "background": "",
+      "perks": [],
+      "quirks": []
+      },
+  "animalTemplate": {
+    "type": "animal",
+    "system": {
+      "attributes": {
+        "health": {
+          "value": 20,
+          "max": 20
+        },
+        "actionPoints": {
+          "value": 8,
+          "max": 8
+        }
+      },
+      "details": {
+        "type": "",
+        "behavior": ""
+      }
+    }
+  },
+  "robotTemplate": {
+    "type": "robot", 
+    "system": {
+      "attributes": {
+        "health": {"value": 150, "max": 150},
+        "actionPoints": {"value": 12, "max": 12},
+        "armor": {"value": 10, "max": 10},
+        "energy": {"value": 100, "max": 100}
+      },
+      "details": {
+        "model": "",
+        "manufacturer": "",
+        "systems": {
+          "motivator": "operational",
+          "sensors": "operational",
+          "weapons": "operational"
+        },
+        "weakpoints": []
+      }
+    }
+  },
+  "enemyTemplate": {
+    "type": "enemy",
+    "system": {
+      "attributes": {
+        "health": {"value": 80, "max": 80},
+        "actionPoints": {"value": 9, "max": 9},
+        "level": 1,
+        "threatLevel": "low"
+      },
+      "details": {
+        "faction": "",
+        "behavior": "aggressive",
+        "lootTable": "",
+        "specialAbilities": []
+      },
+      "skills": {
+        "smallArms": {"value": 3},
+        "meleeWeapons": {"value": 2},
+        "sneakyShit": {"value": 1}
+      }
+    }
+  },
+  "baseItem": {
+    "name": "",
+    "type": "weapon",
+    "img": "icons/svg/item-bag.svg",
+    "system": {
+      "description": "",
+      "quantity": 1,
+      "weight": 0,
+      "cost": 0
+    }
+  },
+  "weaponItem": {
+    "type": "weapon",
+    "system": {
+      "damage": "2d6",
+      "damageType": "ballistic",
+      "attackCost": 4,
+      "range": 30,
+      "ammo": {
+        "current": 10,
+        "max": 10
+      }
+    }
+  },
+  "armorItem": {
+    "type": "armor", 
+    "system": {
+      "armorValue": 5,
+      "location": "body",
+      "penalty": 0
+    }
+  },
+  "skillItem": {
+    "type": "skill",
+    "system": {
+      "category": "weapons",
+      "attribute": "coordination",
+      "baseValue": 0
+    }
+  },
+  "perkItem": {
+    "type": "perk",
+    "system": {
+      "effect": "",
+      "requirements": ""
+    }
+  },
+  "quirkItem": {
+    "type": "quirk", 
+    "system": {
+      "effect": "",
+      "drawback": ""
+    }
+  }
+}
