@@ -1,0 +1,89 @@
+{
+  "id": "wastelands",
+  "title": "Wasteland",
+  "description": "A game system based on the video game by inXile Entertainment",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "12.343"
+  },
+  "authors": [
+    {
+      "name": "Your Name",
+      "url": "https://your-website.com",
+      "discord": "YourDiscord"
+    },
+    {
+      "name": "Your Name",
+      "url": "https://your-website.com",
+      "discord": "YourDiscord"
+    }
+  ],
+  "esmodules": [
+    "module/wastelands.js",
+    "module/calculations.js",
+    "module/combat/combat-manager.js"],
+  "scripts": [],
+  "styles": [
+    "styles/wastelands.css",
+    "styles/actor-sheet.css",
+    "styles/item-sheet.css"
+  ],
+  "packs": [
+    {
+      "name": "skills",
+      "label": "Skills",
+      "system": "wastelands",
+      "path": "./packs/skills.db",
+      "type": "Item"
+    },
+    {
+      "name": "weapons",
+      "label": "Weapons",
+      "system": "wastelands",
+      "path": "./packs/weapons.db",
+      "type": "Item"
+    },
+    {
+      "name": "armor",
+      "label": "Armor",
+      "system": "wastelands",
+      "path": "./packs/armor.db",
+      "type": "Item"
+    },
+    {
+      "name": "animals",
+      "label": "Animals",
+      "system": "wastelands", 
+      "path": "./packs/animals.db",
+      "type": "Actor"
+    },
+    {
+      "name": "enemies",
+      "label": "Enemies",
+      "system": "wastelands",
+      "path": "./packs/enemies.db",
+      "type": "Actor"
+    },
+    {
+      "name": "robots",
+      "label": "Robots",
+      "system": "wastelands",
+      "path": "./packs/robots.db",
+      "type": "Actor"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "grid": {
+    "distance": 1,
+    "units": "m",
+  "primaryTokenAttribute": "attributes.health",
+  "secondaryTokenAttribute": "attributes.actionPoints"
+  }
+}
