@@ -1,0 +1,90 @@
+/* Combat Tracker */
+.wastelands-combat-tracker {
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 10px;
+  border: 2px solid #8b0000;
+}
+
+.combatant {
+  padding: 8px;
+  margin: 5px 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #444;
+  border-radius: 4px;
+}
+
+.combatant.active {
+  background: rgba(139, 0, 0, 0.3);
+  border-color: #8b0000;
+}
+
+.combatant-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.turn-order {
+  background: #8b0000;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* Combat Messages */
+.wastelands-combat-message {
+  background: rgba(139, 0, 0, 0.1);
+  border: 2px solid #8b0000;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.hit { color: #ffa500; font-weight: bold; }
+.critical-hit { color: #ff0000; font-weight: bold; }
+.miss { color: #666; font-weight: bold; }
+
+/* Status Effects */
+.status-effect {
+  display: inline-block;
+  padding: 1px 4px;
+  margin: 0 2px;
+  background: #8b0000;
+  color: white;
+  border-radius: 3px;
+  font-size: 0.7em;
+  text-transform: uppercase;
+}
+
+.status-effect.bleeding { background: #dc143c; }
+.status-effect.poisoned { background: #32cd32; }
+.status-effect.suppressed { background: #666; }
+.status-effect.stunned { background: #ffa500; }
+.status-effect.unconscious { background: #000; }
+
+/* Action Point Display */
+.action-points {
+  color: #00bfff;
+  font-weight: bold;
+}
+
+/* Combat Controls */
+.combat-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.combat-control {
+  background: #8b0000;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.combat-control:hover {
+  background: #a00;
+}

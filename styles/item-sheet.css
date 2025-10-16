@@ -1,0 +1,201 @@
+/* Item Sheet Styles */
+.wastelands-item-sheet {
+    min-width: 500px;
+    min-height: 400px;
+    background: #f0e6d2;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wastelands-item-sheet .sheet-header {
+    background: #8b0000;
+    color: white;
+    padding: 10px;
+    border-bottom: 2px solid #660000;
+}
+
+.wastelands-item-sheet .itemname input {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 100%;
+}
+
+.wastelands-item-sheet .item-type-line {
+  font-style: italic;
+  color: #ccc;
+  margin-top: 5px;
+}
+
+.wastelands-item-sheet .item-rarity {
+  margin-left: 10px;
+  padding: 2px 6px;
+  background: #8b0000;
+  border-radius: 3px;
+  font-size: 0.8em;
+}
+
+/* Form Groups */
+.wastelands-item-sheet .form-group {
+  margin-bottom: 15px;
+}
+
+.wastelands-item-sheet .form-group label {
+     display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.wastelands-item-sheet .form-group input,
+.wastelands-item-sheet .form-group select,
+.wastelands-item-sheet .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: white;
+}
+
+.wastelands-item-sheet .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.wastelands-item-sheet .form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Tabs */
+.wastelands-item-sheet .tabs {
+    background: #333;
+    border-bottom: 2px solid #8b0000;
+}
+
+.wastelands-item-sheet .tabs .item {
+    color: #ccc;
+    padding: 8px 16px;
+}
+
+.wastelands-item-sheet .tabs .item.active {
+  background: #8b0000;
+  color: white;
+}
+
+.wastelands-item-sheet .sheet-body {
+    padding: 15px;
+    background: white;
+}
+
+/* Grid Layouts */
+.wastelands-item-sheet .grid {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.wastelands-item-sheet .grid-2col { grid-template-columns: 1fr 1fr; }
+.wastelands-item-sheet .grid-3col { grid-template-columns: 1fr 1fr 1fr; }
+
+/* Sections */
+.wastelands-item-sheet .ammo-section,
+.wastelands-item-sheet .mods-section,
+.wastelands-item-sheet .qualities-section {
+  border-top: 2px solid #8b0000;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+
+.wastelands-item-sheet .mods-header,
+.wastelands-item-sheet .qualities-header {
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.wastelands-item-sheet .add-mod,
+.wastelands-item-sheet .add-quality {
+  background: #8b0000;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.wastelands-item-sheet .add-mod:hover,
+.wastelands-item-sheet .add-quality:hover {
+  background: #a00;
+}
+
+/* List Items */
+.wastelands-item-sheet .mods-list,
+.wastelands-item-sheet .qualities-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.wastelands-item-sheet .mod-item,
+.wastelands-item-sheet .quality-item {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 5px;
+  margin-bottom: 5px;
+  align-items: center;
+  gap: 5px;
+}
+
+.wastelands-item-sheet .mod-item input,
+.wastelands-item-sheet .quality-item input {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  padding: 2px;
+  background: white;
+}
+
+.wastelands-item-sheet .mod-item input:first-child,
+.wastelands-item-sheet .quality-item input:first-child {
+  flex: 2;
+}
+
+.wastelands-item-sheet .mod-item input:nth-child(2),
+.wastelands-item-sheet .quality-item input:nth-child(2) {
+  flex: 3;
+}
+
+.wastelands-item-sheet .mod-item input:nth-child(3),
+.wastelands-item-sheet .mod-item input:nth-child(4) {
+  flex: 1;
+  text-align: center;
+}
+
+.wastelands-item-sheet .delete-mod,
+.wastelands-item-sheet .delete-quality {
+  color: #dc143c;
+  cursor: pointer;
+  padding: 2px 5px;
+}
+
+.wastelands-item-sheet .delete-mod:hover,
+.wastelands-item-sheet .delete-quality:hover {
+  background: #dc143c;
+  color: white;
+  border-radius: 2px;
+}
+
+/* Editor */
+.wastelands-item-sheet .editor-container {
+  min-height: 200px;
+}
+
+/* Sheet Footer */
+.wastelands-item-sheet .sheet-footer {
+  border-top: 2px solid #8b0000;
+  padding-top: 10px;
+  margin-top: 15px;
+}
+
+.wastelands-item-sheet .item-properties {
+  gap: 10px;
+}

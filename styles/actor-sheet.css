@@ -1,0 +1,265 @@
+/* Actor Sheet Styles */
+.wastelands-sheet {
+  min-width: 600px;
+  min-height: 400px;
+  background: #f0e6d2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wastelands-sheet .sheet-header {
+  background: #8b0000;
+  color: white;
+  padding: 10px;
+  border-bottom: 2px solid #660000;
+}
+
+.wastelands-sheet .charname input {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.wastelands-sheet .resources {
+  margin-top: 10px;
+}
+
+.wastelands-sheet .resource {
+  padding: 8px;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.wastelands-sheet .resource-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+}
+
+.wastelands-sheet .resource-content input {
+  width: 40px;
+  text-align: center;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Tabs */
+.wastelands-sheet .tabs {
+  background: #333;
+  border-bottom: 2px solid #8b0000;
+}
+
+.wastelands-sheet .tabs .item {
+  color: #ccc;
+  padding: 8px 16px;
+}
+
+.wastelands-sheet .tabs .item.active {
+  background: #8b0000;
+  color: white;
+}
+
+/* Sheet Body */
+.wastelands-sheet .sheet-body {
+  padding: 15px;
+  background: white;
+}
+
+/* Attributes Section */
+.attributes-section {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.attributes-section h2 {
+  color: #8b0000;
+  border-bottom: 2px solid #8b0000;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.attributes.grid-7col {
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.attribute {
+  padding: 10px;
+  background: white;
+  border: 1px solid #8b0000;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.attribute-label {
+  font-weight: bold;
+  text-transform: capitalize;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.attribute-value input {
+  width: 40px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.attribute-modifier {
+  font-size: 0.7em;
+  color: #666;
+}
+
+/* Derived Stats */
+.derived-stats {
+  margin-top: 10px;
+}
+
+.derived-stat {
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid #666;
+  border-radius: 3px;
+  text-align: center;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.skills-list {
+    gap: 10px;
+}
+
+.skills-section {
+  margin-top: 20px;
+}
+
+.skill-value {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 2px;
+}
+
+.skill-category {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.skill-category h3 {
+  color: #8b0000;
+  border-bottom: 1px solid #8b0000;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+.skill-item {
+  padding: 8px;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  align-items: center;
+}
+
+.skill-name {
+  font-weight: bold;
+  text-transform: capitalize;
+  flex: 2;
+}
+
+.skill-attribute {
+  color: #666;
+  font-size: 0.8em;
+  text-transform: capitalize;
+  flex: 1;
+}
+
+.skill-controls {
+  flex: 1;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.skill-roll {
+  background: #8b0000;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.skill-roll:hover {
+  background: #a00;
+}
+
+.skill-points-display {
+    margin-top: 20px;
+    padding: 15px;
+    background: #e8f4fd;
+    border: 2px solid #4a90e2;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.skill-points-display h3 {
+    color: #2c5aa0;
+    margin: 0;
+}
+
+/* Grid Layouts */
+.grid {
+  display: grid;
+  gap: 10px;
+}
+
+.grid-2col { grid-template-columns: 1fr 1fr; }
+.grid-3col { grid-template-columns: 1fr 1fr 1fr; }
+.grid-4col { grid-template-columns: 1fr 1fr 1fr 1fr; }
+.grid-7col { grid-template-columns: repeat(7, 1fr); }
+
+.flexcol { display: flex; flex-direction: column; }
+.flexrow { display: flex; flex-direction: row; }
+.flex-group-center { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+}
+.flex-between { justify-content: space-between; }
+.flex-center { align-items: center; }
+
+/* Skill Check Results */
+.wastelands-skill-check {
+  background: rgba(139, 0, 0, 0.1);
+  border: 2px solid #8b0000;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.wastelands-skill-check .result.success {
+  color: #2e8b57;
+  font-weight: bold;
+}
+
+.wastelands-skill-check .result.failure {
+  color: #dc143c;
+  font-weight: bold;
+}

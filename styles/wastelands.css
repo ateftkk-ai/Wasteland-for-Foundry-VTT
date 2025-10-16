@@ -1,0 +1,65 @@
+/* Wasteland 3 System Styles */
+.wastelands-sheet {
+  min-width: 600px;
+  min-height: 685px;
+  background: url('../assets/parchment.jpg') repeat;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wastelands-sheet .sheet-header {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+}
+
+.wastelands-sheet .resource {
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #666;
+  border-radius: 4px;
+}
+
+.wastelands-sheet .attribute {
+  padding: 8px;
+  background: rgba(139, 0, 0, 0.2);
+  border: 1px solid #8b0000;
+  border-radius: 4px;
+  text-transform: capitalize;
+}
+
+.wastelands-sheet .tabs {
+  background: rgba(0, 0, 0, 0.8);
+  border-bottom: 2px solid #8b0000;
+}
+
+.wastelands-sheet .tabs .item.active {
+  background: #8b0000;
+  color: white;
+}
+
+.wastelands-roll {
+  background: rgba(139, 0, 0, 0.1);
+  border: 2px solid #8b0000;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Grid layouts */
+.grid {
+  display: grid;
+  gap: 8px;
+}
+
+.grid-3col { grid-template-columns: repeat(3, 1fr); }
+.grid-4col { grid-template-columns: repeat(4, 1fr); }
+.grid-7col { grid-template-columns: repeat(7, 1fr); }
+
+.flexcol { display: flex; flex-direction: column; }
+.flexrow { display: flex; flex-direction: row; }
+.flex-group-center { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+}
+.flex-between { justify-content: space-between; }
+.flex-center { align-items: center; }
