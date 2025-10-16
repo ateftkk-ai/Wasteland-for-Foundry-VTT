@@ -1,12 +1,12 @@
 /**
- * Extend the base Item document for Wasteland 3.
+ * Extend the base Item document for Wastelands.
  * @extends {Item}
  */
-export class WL3Item extends Item {
+export class WLSItem extends Item {
   /** @override */
   prepareData() {
     super.prepareData();
-        console.log("WL3Item prepareData called for", this.name, "type:", this.type);
+        console.log("WLSItem prepareData called for", this.name, "type:", this.type);
     }
 
     /** @override */

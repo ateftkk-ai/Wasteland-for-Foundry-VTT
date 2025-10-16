@@ -42,7 +42,8 @@
 
   {{!-- Navigation Tabs --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="attributes">Attributes & Skills</a>
+    <a class="item" data-tab="attributes">Attributes</a>
+    <a class="item" data-tab="skills">Skills</a>
     <a class="item" data-tab="combat">Combat</a>
     <a class="item" data-tab="inventory">Inventory</a>
     <a class="item" data-tab="background">Background</a>
@@ -50,145 +51,170 @@
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
-    {{!-- Attributes Tab --}}
+    <!-- Attributes Tab -->
     <div class="tab attributes" data-group="primary" data-tab="attributes">
-      {{!-- Core Attributes --}}
-      <div class="attributes-section">
-        <h2>Core Attributes</h2>
-        <div class="attributes grid grid-7col">
-          {{#each system.attributes.stats as |stat key|}}
-          <div class="attribute flex-group-center">
-            <label for="system.attributes.stats.{{key}}.value" class="attribute-label">
-              {{key}}
-            </label>
-            <div class="attribute-value">
-              <input type="text" name="system.attributes.stats.{{key}}.value" 
-                     value="{{stat.value}}" data-dtype="Number" min="1" max="10"/>
-            </div>
-          </div>
-          {{/each}}
+      <!-- Simple Health -->
+      <div class="resource">
+          <label>Health:</label>
+          <input type="number" name="system.attributes.health.value" value="{{system.attributes.health.value}}"/>
+          <span>/</span>
+          <input type="number" name="system.attributes.health.max" value="{{system.attributes.health.max}}"/>
+      </div>
+
+      <!-- Simple Action Points -->
+      <div class="resource">
+          <label>Action Points:</label>
+          <input type="number" name="system.attributes.actionPoints.value" value="{{system.attributes.actionPoints.value}}"/>
+          <span>/</span>
+          <input type="number" name="system.attributes.actionPoints.max" value="{{system.attributes.actionPoints.max}}"/>
+      </div>
+
+      <!-- Simple Core Attributes -->
+      <h3>Core Attributes</h3>
+      
+      <!-- Coordination -->
+      <div class="attribute-simple">
+          <label>Coordination:</label>
+          <input type="number" name="system.attributes.stats.coordination.value" value="{{system.attributes.stats.coordination.value}}" min="1" max="10"/>
+          <span>Max: {{system.attributes.stats.coordination.max}}</span>
+      </div>
+
+      <!-- Intelligence -->
+      <div class="attribute-simple">
+          <label>Intelligence:</label>
+          <input type="number" name="system.attributes.stats.intelligence.value" value="{{system.attributes.stats.intelligence.value}}" min="1" max="10"/>
+          <span>Max: {{system.attributes.stats.intelligence.max}}</span>
+      </div>
+
+      <!-- Strength -->
+      <div class="attribute-simple">
+          <label>Strength:</label>
+          <input type="number" name="system.attributes.stats.strength.value" value="{{system.attributes.stats.strength.value}}" min="1" max="10"/>
+          <span>Max: {{system.attributes.stats.strength.max}}</span>
+      </div>
+
+      <!-- Luck -->
+      <div class="attribute-simple">
+          <label>Luck:</label>
+          <input type="number" name="system.attributes.stats.luck.value" value="{{system.attributes.stats.luck.value}}" min="1" max="10"/>
+          <span>Max: {{system.attributes.stats.luck.max}}</span>
+      </div>
+
+      <!-- Awareness -->
+      <div class="attribute-simple">
+          <label>Awareness:</label>
+          <input type="number" name="system.attributes.stats.awareness.value" value="{{system.attributes.stats.awareness.value}}" min="1" max="10"/>
+          <span>Max: {{system.attributes.stats.awareness.max}}</span>
+      </div>
+
+      <!-- Speed -->
+      <div class="attribute-simple">
+          <label>Speed:</label>
+          <input type="number" name="system.attributes.stats.speed.value" value="{{system.attributes.stats.speed.value}}" min="1" max="10"/>
+          <span>Max: {{system.attributes.stats.speed.max}}</span>
+      </div>
+
+      <!-- Charisma -->
+      <div class="attribute-simple">
+          <label>Charisma:</label>
+          <input type="number" name="system.attributes.stats.charisma.value" value="{{system.attributes.stats.charisma.value}}" min="1" max="10"/>
+          <span>Max: {{system.attributes.stats.charisma.max}}</span>
+      </div>
+
+      {{!-- Derived Stats --}}
+      <div class="derived-stats grid grid-3col">
+        <div class="derived-stat flex-group-center">
+          <label>Strike Rate</label>
+          <span>{{system.attributes.derived.strikeRate}}%</span>
         </div>
-        
-        {{!-- Derived Stats --}}
-        <div class="derived-stats grid grid-3col">
-          <div class="derived-stat flex-group-center">
-            <label>Strike Rate</label>
-            <span>{{system.attributes.derived.strikeRate}}%</span>
-          </div>
-          <div class="derived-stat flex-group-center">
-            <label>Critical Chance</label>
-            <span>{{system.attributes.derived.criticalChance}}%</span>
-          </div>
-          <div class="derived-stat flex-group-center">
-            <label>Carry Weight</label>
-            <span>{{system.attributes.derived.maxCarryWeight}} kg</span>
-          </div>
+        <div class="derived-stat flex-group-center">
+          <label>Critical Chance</label>
+          <span>{{system.attributes.derived.criticalChance}}%</span>
+        </div>
+        <div class="derived-stat flex-group-center">
+          <label>Carry Weight</label>
+          <span>{{system.attributes.derived.maxCarryWeight}} kg</span>
         </div>
       </div>
-<!-- Skills Tab -->
-<div class="tab skills" data-group="primary" data-tab="skills">
-    <h2>Skills</h2>
+    </div>
 
-<div class="skills-grid">
+    <!-- Skills Tab -->
+    <div class="tab skills" data-group="primary" data-tab="skills">
+      <h2>Skills</h2>
+
+      <div class="skills-grid">
         <!-- Weapons Skills -->
         <div class="skill-category">
-            <h3>Weapons</h3>
-            <div class="skills-list grid grid-2col">
-                {{#each system.skills.weapons as |skill skillName|}}
-                <div class="skill-item flexrow">
-                    <label class="skill-name">{{skillName}}</label>
-                    <input type="number" name="system.skills.weapons.{{skillName}}.value" value="{{skill.value}}" min="0" max="10" class="skill-value"/>
-                    <span class="skill-attribute">({{skill.attribute}})</span>
-                    <button type="button" class="skill-roll" data-skill="{{skillName}}" data-category="weapons">
-                        <i class="fas fa-dice-d20"></i>
-                    </button>
-                </div>
-                {{/each}}
-            </div>
-        </div>
-
-        <!-- Combat Skills -->
-        <div class="skill-category">
-            <h3>Combat</h3>
-            <div class="skills-list grid grid-2col">
-                {{#each system.skills.combat as |skill skillName|}}
-                <div class="skill-item flexrow">
-                    <label class="skill-name">{{skillName}}</label>
-                    <input type="number" name="system.skills.combat.{{skillName}}.value" value="{{skill.value}}" min="0" max="10" class="skill-value"/>
-                    <span class="skill-attribute">({{skill.attribute}})</span>
-                    <button type="button" class="skill-roll" data-skill="{{skillName}}" data-category="combat">
-                        <i class="fas fa-dice-d20"></i>
-                    </button>
-                </div>
-                {{/each}}
-            </div>
-        </div>
-
-        <!-- Survival Skills -->
-        <div class="skill-category">
-            <h3>Survival</h3>
-            <div class="skills-list grid grid-2col">
-                {{#each system.skills.survival as |skill skillName|}}
-                <div class="skill-item flexrow">
-                    <label class="skill-name">{{skillName}}</label>
-                    <input type="number" name="system.skills.survival.{{skillName}}.value" value="{{skill.value}}" min="0" max="10" class="skill-value"/>
-                    <span class="skill-attribute">({{skill.attribute}})</span>
-                    <button type="button" class="skill-roll" data-skill="{{skillName}}" data-category="survival">
-                        <i class="fas fa-dice-d20"></i>
-                    </button>
-                </div>
-                {{/each}}
-            </div>
-        </div>
-
-        <!-- Tech Skills -->
-        <div class="skill-category">
-            <h3>Tech</h3>
-            <div class="skills-list grid grid-2col">
-                {{#each system.skills.tech as |skill skillName|}}
-                <div class="skill-item flexrow">
-                    <label class="skill-name">{{skillName}}</label>
-                    <input type="number" name="system.skills.tech.{{skillName}}.value" value="{{skill.value}}" min="0" max="10" class="skill-value"/>
-                    <span class="skill-attribute">({{skill.attribute}})</span>
-                    <button type="button" class="skill-roll" data-skill="{{skillName}}" data-category="tech">
-                        <i class="fas fa-dice-d20"></i>
-                    </button>
-                </div>
-                {{/each}}
-            </div>
-        </div>
-    </div>
-
-    <!-- Skill Points Display -->
-    <div class="skill-points-display">
-        <h3>Skill Points Available: {{system.attributes.skillPoints}}</h3>
-    </div>
-</div>
-
-      {{!-- Skills by Category --}}
-      <div class="skills-section">
-        {{#each system.skills as |category categoryName|}}
-        <div class="skill-category">
-          <h3>{{categoryName}}</h3>
-          <div class="skills-grid grid grid-3col">
-            {{#each category as |skill skillName|}}
-            <div class="skill-item flexrow flex-between" data-skill="{{skillName}}">
-              <div class="skill-info">
-                <label class="skill-name">{{skillName}}</label>
-                <span class="skill-attribute">({{skill.attribute}})</span>
-              </div>
-              <div class="skill-controls flexrow">
-                <input type="text" name="system.skills.{{categoryName}}.{{skillName}}.value" 
-                       value="{{skill.value}}" data-dtype="Number" min="0" max="10"/>
-                <button type="button" class="skill-roll" data-skill="{{skillName}}">
-                  <i class="fas fa-dice-d20"></i>
-                </button>
-              </div>
+          <h3>Weapons</h3>
+          <div class="skills-list grid grid-2col">
+            {{#each system.skills.weapons as |skill skillName|}}
+            <div class="skill-item flexrow">
+              <label class="skill-name">{{skillName}}</label>
+              <input type="number" name="system.skills.weapons.{{skillName}}.value" value="{{skill.value}}" min="0" max="10" class="skill-value"/>
+              <span class="skill-attribute">({{skill.attribute}})</span>
+              <button type="button" class="skill-roll" data-skill="{{skillName}}" data-category="weapons">
+                <i class="fas fa-dice-d20"></i>
+              </button>
             </div>
             {{/each}}
           </div>
         </div>
-        {{/each}}
+
+        <!-- Combat Skills -->
+        <div class="skill-category">
+          <h3>Combat</h3>
+          <div class="skills-list grid grid-2col">
+            {{#each system.skills.combat as |skill skillName|}}
+            <div class="skill-item flexrow">
+              <label class="skill-name">{{skillName}}</label>
+              <input type="number" name="system.skills.combat.{{skillName}}.value" value="{{skill.value}}" min="0" max="10" class="skill-value"/>
+              <span class="skill-attribute">({{skill.attribute}})</span>
+              <button type="button" class="skill-roll" data-skill="{{skillName}}" data-category="combat">
+                <i class="fas fa-dice-d20"></i>
+              </button>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+
+        <!-- Survival Skills -->
+        <div class="skill-category">
+          <h3>Survival</h3>
+          <div class="skills-list grid grid-2col">
+            {{#each system.skills.survival as |skill skillName|}}
+            <div class="skill-item flexrow">
+              <label class="skill-name">{{skillName}}</label>
+              <input type="number" name="system.skills.survival.{{skillName}}.value" value="{{skill.value}}" min="0" max="10" class="skill-value"/>
+              <span class="skill-attribute">({{skill.attribute}})</span>
+              <button type="button" class="skill-roll" data-skill="{{skillName}}" data-category="survival">
+                <i class="fas fa-dice-d20"></i>
+              </button>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+
+        <!-- Tech Skills -->
+        <div class="skill-category">
+          <h3>Tech</h3>
+          <div class="skills-list grid grid-2col">
+            {{#each system.skills.tech as |skill skillName|}}
+            <div class="skill-item flexrow">
+              <label class="skill-name">{{skillName}}</label>
+              <input type="number" name="system.skills.tech.{{skillName}}.value" value="{{skill.value}}" min="0" max="10" class="skill-value"/>
+              <span class="skill-attribute">({{skill.attribute}})</span>
+              <button type="button" class="skill-roll" data-skill="{{skillName}}" data-category="tech">
+                <i class="fas fa-dice-d20"></i>
+              </button>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+
+      <!-- Skill Points Display -->
+      <div class="skill-points-display">
+        <h3>Skill Points Available: {{system.attributes.skillPoints}}</h3>
       </div>
     </div>
 

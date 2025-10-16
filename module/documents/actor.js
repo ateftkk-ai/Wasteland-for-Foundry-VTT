@@ -1,8 +1,8 @@
-export class WL3Actor extends Actor {
+export class WLSActor extends Actor {
   /** @override */
   prepareData() {
     super.prepareData();
-    console.log("WL3Actor prepareData called for", this.name, "type:", this.type);
+    console.log("WLSActor prepareData called for", this.name, "type:", this.type);
     // Calculate derived stats when data changes
     this.prepareDerivedStats();
     this.prepareSkills();
@@ -10,7 +10,7 @@ export class WL3Actor extends Actor {
   
   /** @override */
   prepareBaseData() {
-      console.log("WL3Actor prepareBaseData called");
+      console.log("WLSActor prepareBaseData called");
         
       // Ensure the actor has all required data structure
       if (!this.system.skills) {
@@ -29,7 +29,7 @@ export class WL3Actor extends Actor {
     const stats = this.system.attributes.stats;
     
     // Update derived stats
-    this.system.attributes.derived = WL3Calculations.calculateDerivedStats(this);
+    this.system.attributes.derived = WLSCalculations.calculateDerivedStats(this);
     
     // Calculate current/max action points
     this.system.attributes.actionPoints.max = 6 + Math.floor(stats.speed.value / 2);
@@ -45,7 +45,7 @@ export class WL3Actor extends Actor {
     
     for (const [category, categorySkills] of Object.entries(skills)) {
       for (const [skillName, skillData] of Object.entries(categorySkills)) {
-        skillData.total = WL3Calculations.getTotalSkillValue(skillData, stats);
+        skillData.total = WLSCalculations.getTotalSkillValue(skillData, stats);
             // Debug: Check if we have skills data after preparation
         console.log("After preparation - Skills data:", this.system.skills);
       }
@@ -135,8 +135,8 @@ export class WL3Actor extends Actor {
     }
     
     // Perform attack calculation
-    const attackData = WL3CombatCalculations.calculateAttack(this, targetActor, weaponItem, options);
-    const defenseData = WL3CombatCalculations.calculateDefense(targetActor, attackData);
+    const attackData = WLSCombatCalculations.calculateAttack(this, targetActor, weaponItem, options);
+    const defenseData = WLSCombatCalculations.calculateDefense(targetActor, attackData);
     
     // Roll to hit
     const hitRoll = new Roll("1d100");

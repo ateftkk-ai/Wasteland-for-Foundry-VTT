@@ -1,4 +1,4 @@
-export class WL3ItemSheet extends ItemSheet {
+export class WLSItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -15,7 +15,7 @@ export class WL3ItemSheet extends ItemSheet {
         const context = super.getData();
         
         // Debug logging
-        console.log("WL3ItemSheet getData called");
+        console.log("WLSItemSheet getData called");
         console.log("Item:", this.item);
         console.log("Item type:", this.item.type);
         console.log("Item system data:", this.item.system);
@@ -31,21 +31,21 @@ export class WL3ItemSheet extends ItemSheet {
     /** @override */
     activateListeners(html) {
         super.activateListeners(html);
-        console.log("WL3ItemSheet activateListeners called");
+        console.log("WLSItemSheet activateListeners called");
 
                 // Check if HTML is properly rendered
         if (!html || !html[0]) {
-            console.error("WL3ItemSheet: HTML not properly rendered");
+            console.error("WLSItemSheet: HTML not properly rendered");
             return;
         }
         
-        console.log("WL3ItemSheet HTML element:", html[0]);
+        console.log("WLSItemSheet HTML element:", html[0]);
     }
 
     /** @override */
     async _render(force = false, options = {}) {
-        console.log("WL3ItemSheet _render called");
+        console.log("WLSItemSheet _render called");
         await super._render(force, options);
-        console.log("WL3ItemSheet _render completed");
+        console.log("WLSItemSheet _render completed");
     }
 }

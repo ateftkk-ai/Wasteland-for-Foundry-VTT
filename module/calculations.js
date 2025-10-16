@@ -1,5 +1,5 @@
 // Attribute and Skill Calculations
-export class WL3Calculations {
+export class WLSCalculations {
   
   // Calculate derived stats from attributes
   static calculateDerivedStats(actor) {
@@ -18,17 +18,18 @@ export class WL3Calculations {
     // Initiative (Awareness + Speed)
     derived.initiative = stats.awareness.value + stats.speed.value;
 
-  static calculateInitiative(actor) {
-    const stats = actor.system.attributes.stats;
-    const baseInitiative = stats.awareness.value + stats.speed.value;
-    const weapon = actor.system.weapons.equipped.primary;
-    
-    let weaponPenalty = 0;
-    if (weapon) {
-      // Heavier weapons impose initiative penalty
-      weaponPenalty = Math.floor(weapon.system.weight / 2);
-    }
-    
+    class Calculations {
+      static calculateInitiative(actor) {
+        const stats = actor.system.attributes.stats;
+        const baseInitiative = stats.awareness.value + stats.speed.value;
+        const weapon = actor.system.weapons?.equipped?.primary;
+
+        let weaponPenalty = 0;
+        if (weapon) {
+          // Heavier weapons impose initiative penalty
+          weaponPenalty = Math.floor(weapon.system.weight / 2);
+        }
+
     return Math.max(1, baseInitiative - weaponPenalty);
   }
   

@@ -2,7 +2,7 @@ export class EnemySheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["wasteland3", "sheet", "actor", "enemy"],
+      classes: ["wastelands", "sheet", "actor", "enemy"],
       template: "systems/wastelands/templates/enemy-sheet.html",
       width: 600,
       height: 600

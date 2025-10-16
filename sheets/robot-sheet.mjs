@@ -2,7 +2,7 @@ export class RobotSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["wasteland3", "sheet", "actor", "robot"],
+      classes: ["wastelands", "sheet", "actor", "robot"],
       template: "systems/wastelands/templates/robot-sheet.html",
       width: 600,
       height: 650

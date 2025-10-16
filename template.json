@@ -87,19 +87,46 @@
     "type": "ranger",
     "system": {
       "attributes": {
-        "health": {"value": 100, "max": 100},
-	"actionPoints": {"value": 10, "max": 10},
+        "health": {
+          "value": 100, 
+          "max": 100
+        },
+        "actionPoints": {
+          "value": 10, 
+          "max": 10
+        },
         "skillPoints": 0,
         "experience": 0,
+        "level": 1,
         "stats": {
-          "coordination": {"value": 1, "max": 10},
-          "luck": {"value": 1, "max": 10},
-          "awareness": {"value": 1, "max": 10},
-          "strength": {"value": 1, "max": 10},
-          "speed": {"value": 1, "max": 10},
-          "intelligence": {"value": 1, "max": 10},
-          "charisma": {"value": 1, "max": 10}
-	 }
+          "coordination": {
+            "value": 1, 
+            "max": 10
+          },
+          "luck": {
+            "value": 1, 
+            "max": 10
+          },
+          "awareness": {
+            "value": 1, 
+            "max": 10
+          },
+          "strength": {
+            "value": 1, 
+            "max": 10
+          },
+          "speed": {
+            "value": 1, 
+            "max": 10
+          },
+          "intelligence": {
+            "value": 1, 
+            "max": 10
+          },
+          "charisma": {
+            "value": 1, 
+            "max": 10
+          }
         },
         "derived": {
           "strikeRate": 0,
@@ -112,43 +139,119 @@
       },
       "skills": {
         "weapons": {
-          "automaticWeapons": {"value": 0, "attribute": "coordination"},
-          "smallArms": {"value": 0, "attribute": "coordination"},
-          "heavyWeapons": {"value": 0, "attribute": "strength"},
-          "sniperRifles": {"value": 0, "attribute": "awareness"},
-          "shotguns": {"value": 0, "attribute": "strength"},
-          "meleeWeapons": {"value": 0, "attribute": "strength"},
-          "brawling": {"value": 0, "attribute": "strength"},
-          "explosives": {"value": 0, "attribute": "coordination"}
+          "automaticWeapons": {
+            "value": 0, 
+            "attribute": "coordination"
+          },
+          "smallArms": {
+            "value": 0, 
+            "attribute": "coordination"
+          },
+          "heavyWeapons": {
+            "value": 0, 
+            "attribute": "strength"
+          },
+          "sniperRifles": {
+            "value": 0, 
+            "attribute": "awareness"
+          },
+          "shotguns": {
+            "value": 0, 
+            "attribute": "strength"
+          },
+          "meleeWeapons": {
+            "value": 0, 
+            "attribute": "strength"
+          },
+          "brawling": {
+            "value": 0, 
+            "attribute": "strength"
+          },
+          "explosives": {
+            "value": 0, 
+            "attribute": "coordination"
+          }
         },
         "combat": {
-          "armorModding": {"value": 0, "attribute": "intelligence"},
-          "weaponModding": {"value": 0, "attribute": "intelligence"},
-          "firstAid": {"value": 0, "attribute": "intelligence"},
-          "sneakyShit": {"value": 0, "attribute": "awareness"},
-          "animalWhisperer": {"value": 0, "attribute": "charisma"},
-          "leadership": {"value": 0, "attribute": "charisma"}
+          "armorModding": {
+            "value": 0, 
+            "attribute": "intelligence" 
+          },
+          "weaponModding": {
+            "value": 0, 
+            "attribute": "intelligence"
+          },
+          "firstAid": {
+            "value": 0, 
+            "attribute": "intelligence"
+          },
+          "sneakyShit": {
+            "value": 0, 
+            "attribute": "awareness"
+          },
+          "animalWhisperer": {
+            "value": 0, 
+            "attribute": "charisma"
+          },
+          "leadership": {
+            "value": 0, 
+            "attribute": "charisma"
+          }
         },
         "survival": {
-          "lockpicking": {"value": 0, "attribute": "awareness"},
-          "hardAss": {"value": 0, "attribute": "strength"},
-          "kissAss": {"value": 0, "attribute": "charisma"},
-          "mechanics": {"value": 0, "attribute": "intelligence"},
-          "survival": {"value": 0, "attribute": "intelligence"},
-          "toasterRepair": {"value": 0, "attribute": "intelligence"}
+          "lockpicking": {
+            "value": 0, 
+            "attribute": "awareness"
+          },
+          "hardAss": {
+            "value": 0, 
+            "attribute": "strength"
+          },
+          "kissAss": {
+            "value": 0, 
+            "attribute": "charisma"
+          },
+          "mechanics": {
+            "value": 0, 
+            "attribute": "intelligence"
+          },
+          "survival": {
+            "value": 0, 
+            "attribute": "intelligence"
+          },
+          "toasterRepair": {
+            "value": 0, 
+            "attribute": "intelligence"
+          }
         },
         "tech": {
-          "nerdStuff": {"value": 0, "attribute": "intelligence"},
-          "weirdScience": {"value": 0, "attribute": "intelligence"},
-          "cybernetics": {"value": 0, "attribute": "intelligence"},
-          "computerScience": {"value": 0, "attribute": "intelligence"},
-          "engineering": {"value": 0, "attribute": "intelligence"}
+          "nerdStuff": {
+            "value": 0, 
+            "attribute": "intelligence"
+          },
+          "weirdScience": {
+            "value": 0, 
+            "attribute": "intelligence"
+          },
+          "cybernetics": {
+            "value": 0, 
+            "attribute": "intelligence"
+          },
+          "computerScience": {
+            "value": 0, 
+            "attribute": "intelligence"
+          },
+          "engineering": {
+            "value": 0, 
+            "attribute": "intelligence"
+          }
         }
       },
       "background": "",
       "perks": [],
       "quirks": []
-      },
+    }
+  },
   "animalTemplate": {
     "type": "animal",
     "system": {

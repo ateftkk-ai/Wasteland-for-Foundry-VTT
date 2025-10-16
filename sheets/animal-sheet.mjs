@@ -2,7 +2,7 @@ export class AnimalSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["wasteland3", "sheet", "actor", "animal"],
+      classes: ["wastelands", "sheet", "actor", "animal"],
       template: "systems/wastelands/templates/animal-sheet.html",
       width: 600,
       height: 680
