@@ -1,0 +1,189 @@
+<form class="{{cssClass}} flexcol wastelands-sheet enemy-sheet" autocomplete="off">
+  {{!-- Header --}}
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Enemy Name"/></h1>
+      <div class="resources grid grid-3col">
+        <div class="resource flex-group-center">
+          <label for="system.attributes.health.value" class="resource-label">Health</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.attributes.health.value" value="{{system.attributes.health.value}}" data-dtype="Number"/>
+            <span> / </span>
+            <input type="text" name="system.attributes.health.max" value="{{system.attributes.health.max}}" data-dtype="Number"/>
+          </div>
+        </div>
+        
+        <div class="resource flex-group-center">
+          <label for="system.attributes.actionPoints.value" class="resource-label">Action Points</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.attributes.actionPoints.value" value="{{system.attributes.actionPoints.value}}" data-dtype="Number"/>
+            <span> / </span>
+            <input type="text" name="system.attributes.actionPoints.max" value="{{system.attributes.actionPoints.max}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="system.attributes.level" class="resource-label">Level</label>
+          <div class="resource-content">
+            <input type="text" name="system.attributes.level" value="{{system.attributes.level}}" data-dtype="Number"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Navigation Tabs --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="stats">Statistics</a>
+    <a class="item" data-tab="combat">Combat</a>
+    <a class="item" data-tab="loot">Loot</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    {{!-- Statistics Tab --}}
+    <div class="tab stats" data-group="primary" data-tab="stats">
+      <div class="enemy-details grid grid-2col">
+        <div class="left-column">
+          <div class="form-group">
+            <label for="system.details.faction">Faction</label>
+            <input type="text" name="system.details.faction" value="{{system.details.faction}}"/>
+          </div>
+          <div class="form-group">
+            <label for="system.details.behavior">Behavior</label>
+            <select name="system.details.behavior">
+              <option value="aggressive" {{#if (eq system.details.behavior "aggressive")}}selected{{/if}}>Aggressive</option>
+              <option value="defensive" {{#if (eq system.details.behavior "defensive")}}selected{{/if}}>Defensive</option>
+              <option value="cautious" {{#if (eq system.details.behavior "cautious")}}selected{{/if}}>Cautious</option>
+              <option value="fleeing" {{#if (eq system.details.behavior "fleeing")}}selected{{/if}}>Fleeing</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="system.attributes.threatLevel">Threat Level</label>
+            <select name="system.attributes.threatLevel">
+              <option value="low" {{#if (eq system.attributes.threatLevel "low")}}selected{{/if}}>Low</option>
+              <option value="medium" {{#if (eq system.attributes.threatLevel "medium")}}selected{{/if}}>Medium</option>
+              <option value="high" {{#if (eq system.attributes.threatLevel "high")}}selected{{/if}}>High</option>
+              <option value="boss" {{#if (eq system.attributes.threatLevel "boss")}}selected{{/if}}>Boss</option>
+            </select>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="form-group">
+            <label>Combat Skills</label>
+            <div class="enemy-skills">
+              {{#each system.skills as |skill skillName|}}
+              <div class="enemy-skill flexrow">
+                <span class="skill-label">{{skillName}}:</span>
+                <input type="number" name="system.skills.{{skillName}}.value" value="{{skill.value}}" min="0" max="10"/>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="special-abilities-section">
+        <h3>Special Abilities</h3>
+        <div class="abilities-list">
+          {{#each system.details.specialAbilities as |ability index|}}
+          <div class="ability-item flexrow">
+            <input type="text" name="system.details.specialAbilities.{{index}}.name" value="{{ability.name}}" placeholder="Ability Name"/>
+            <input type="text" name="system.details.specialAbilities.{{index}}.description" value="{{ability.description}}" placeholder="Description"/>
+            <input type="number" name="system.details.specialAbilities.{{index}}.cooldown" value="{{ability.cooldown}}" placeholder="CD"/>
+            <a class="delete-ability" data-index="{{index}}"><i class="fas fa-trash"></i></a>
+          </div>
+          {{/each}}
+          <button type="button" class="add-ability"><i class="fas fa-plus"></i> Add Ability</button>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Combat Tab --}}
+    <div class="tab combat" data-group="primary" data-tab="combat">
+      <div class="armor-section">
+        <h2>Armor & Defense</h2>
+        <div class="armor grid grid-4col">
+          <div class="armor-location flex-group-center">
+            <label>Head</label>
+            <input type="text" name="system.armor.head.value" value="{{system.armor.head.value}}" data-dtype="Number"/>
+          </div>
+          <div class="armor-location flex-group-center">
+            <label>Body</label>
+            <input type="text" name="system.armor.body.value" value="{{system.armor.body.value}}" data-dtype="Number"/>
+          </div>
+          <div class="armor-location flex-group-center">
+            <label>Arms</label>
+            <input type="text" name="system.armor.arms.value" value="{{system.armor.arms.value}}" data-dtype="Number"/>
+          </div>
+          <div class="armor-location flex-group-center">
+            <label>Legs</label>
+            <input type="text" name="system.armor.legs.value" value="{{system.armor.legs.value}}" data-dtype="Number"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="weapons-section">
+        <h2>Weapons</h2>
+        <div class="weapon-slots">
+          <div class="weapon-slot flex-group-center">
+            <label>Primary Weapon</label>
+            <select name="system.weapons.equipped.primary">
+              <option value=""></option>
+              {{#each weapons as |weapon id|}}
+              <option value="{{weapon._id}}" {{#if (eq ../system.weapons.equipped.primary weapon._id)}}selected{{/if}}>{{weapon.name}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="status-effects-section">
+        <h2>Status Effects</h2>
+        <div class="status-effects-list">
+          {{#each system.combat.statusEffects as |effect index|}}
+          <div class="status-effect-item flexrow">
+            <input type="text" name="system.combat.statusEffects.{{index}}.type" value="{{effect.type}}" placeholder="Effect Type"/>
+            <input type="number" name="system.combat.statusEffects.{{index}}.duration" value="{{effect.duration}}" placeholder="Duration"/>
+            <a class="delete-effect" data-index="{{index}}"><i class="fas fa-trash"></i></a>
+          </div>
+          {{/each}}
+          <button type="button" class="add-effect"><i class="fas fa-plus"></i> Add Effect</button>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Loot Tab --}}
+    <div class="tab loot" data-group="primary" data-tab="loot">
+      <div class="loot-section">
+        <div class="form-group">
+          <label for="system.details.lootTable">Loot Table</label>
+          <input type="text" name="system.details.lootTable" value="{{system.details.lootTable}}" placeholder="Loot table reference"/>
+        </div>
+
+        <div class="guaranteed-loot">
+          <h3>Guaranteed Loot</h3>
+          <ol class="items-list">
+            {{#each items as |item id|}}
+            <li class="item flexrow" data-item-id="{{item._id}}">
+              <div class="item-name">{{item.name}}</div>
+              <div class="item-quantity">{{item.system.quantity}}</div>
+              <div class="item-chance">100%</div>
+              <div class="item-controls">
+                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+              </div>
+            </li>
+            {{/each}}
+          </ol>
+        </div>
+
+        <div class="loot-notes">
+          <h3>Loot Notes</h3>
+          <textarea name="system.details.notes" rows="4">{{system.details.notes}}</textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>

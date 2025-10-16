@@ -1,0 +1,43 @@
+<form class="{{cssClass}} flexcol wastelands-sheet animal-sheet" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Animal Name"/></h1>
+      <div class="resources grid grid-2col">
+        <div class="resource flex-group-center">
+          <label for="system.attributes.health.value" class="resource-label">Health</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.attributes.health.value" value="{{system.attributes.health.value}}" data-dtype="Number"/>
+            <span> / </span>
+            <input type="text" name="system.attributes.health.max" value="{{system.attributes.health.max}}" data-dtype="Number"/>
+          </div>
+        </div>
+        <div class="resource flex-group-center">
+          <label for="system.attributes.actionPoints.value" class="resource-label">Action Points</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.attributes.actionPoints.value" value="{{system.attributes.actionPoints.value}}" data-dtype="Number"/>
+            <span> / </span>
+            <input type="text" name="system.attributes.actionPoints.max" value="{{system.attributes.actionPoints.max}}" data-dtype="Number"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="sheet-body">
+    <div class="tab details" data-group="primary" data-tab="details">
+      <div class="form-group">
+        <label>Animal Type</label>
+        <input type="text" name="system.details.type" value="{{system.details.type}}"/>
+      </div>
+      <div class="form-group">
+        <label>Behavior</label>
+        <input type="text" name="system.details.behavior" value="{{system.details.behavior}}"/>
+      </div>
+      <div class="form-group">
+        <label>Special Abilities</label>
+        <textarea name="system.details.specialAbilities">{{system.details.specialAbilities}}</textarea>
+      </div>
+    </div>
+  </section>
+</form>

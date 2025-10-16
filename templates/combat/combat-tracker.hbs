@@ -1,0 +1,30 @@
+<div class="wastelands-combat-tracker">
+  <header class="combat-header">
+    <h2>Combat Tracker - Round {{round}}</h2>
+    <div class="combat-controls">
+      <button class="combat-control" data-action="next-turn">Next Turn</button>
+      <button class="combat-control" data-action="end-combat">End Combat</button>
+    </div>
+  </header>
+  
+  <div class="combatant-list">
+    {{#each combatants}}
+    <div class="combatant {{#if isActive}}active{{/if}}" data-actor-id="{{actorId}}">
+      <div class="combatant-info">
+        <span class="turn-order">{{turnOrder}}</span>
+        <span class="combatant-name">{{name}}</span>
+        <span class="initiative">Init: {{initiative}}</span>
+      </div>
+      <div class="combatant-status">
+        <span class="action-points">AP: {{actionPoints.current}}/{{actionPoints.max}}</span>
+        <span class="health">HP: {{health.value}}/{{health.max}}</span>
+        <div class="status-effects">
+          {{#each statusEffects}}
+          <span class="status-effect {{type}}" title="{{type}}">{{type}}</span>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
